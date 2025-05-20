@@ -19,18 +19,14 @@ const inter = Inter({
   variable: "--font-sans",
 })
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-interface Props {}
+type Props = object;
 
 const App: React.FC<Props> = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isMobile, setIsMobile] = useState<boolean>(false)
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
   // Handle responsive behavior
   useEffect(() => {
     const handleResize = (): void => {
-      setIsMobile(window.innerWidth < 768)
       if (window.innerWidth >= 768) {
         setIsMenuOpen(false)
       }
