@@ -118,11 +118,13 @@ const App: React.FC<Props> = () => {
               <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 max-w-5xl mx-auto mt-6 md:mt-8">
                 <div className="w-full md:w-2/5">
                   <Image
-                    src="/images/bolu.jpg"
+
+                    src="/bolu.jpg"
                     alt="Sarah's profile"
                     width={500}
                     height={600}
                     className="rounded-sm w-full"
+                    priority
                   />
                 </div>
 
