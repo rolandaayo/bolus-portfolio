@@ -49,48 +49,57 @@ const App: React.FC<Props> = () => {
 
         <header className="bg-[#c0aa7b] py-4 md:py-8 fixed w-full top-0 z-50">
           <nav className="container mx-auto px-4">
+            <div className="flex justify-between items-center">
+              <ul className={`flex flex-col md:flex-row md:items-center md:space-y-0 md:space-x-8 text-sm md:text-base
+                transition-all duration-300 ease-in-out
+                ${isMenuOpen ? 'block fixed left-0 right-0 top-[4.5rem] bg-[#c0aa7b] p-6 space-y-6 border-t border-[#a57b63]' : 'hidden md:flex'}`}>
+                <li className="text-center md:text-left">
+                  <Link href="#hello" className="text-dark hover:text-white transition-colors block">
+                    HELLO
+                  </Link>
+                </li>
+                <li className="text-center md:text-left">
+                  <Link href="#about" className="text-dark hover:text-white transition-colors block">
+                    ABOUT ME
+                  </Link>
+                </li>
+                <li className="text-center md:text-left">
+                  <Link href="#skills" className="text-dark hover:text-white transition-colors block">
+                    SKILLS
+                  </Link>
+                </li>
+                <li className="text-center md:text-left">
+                  <Link href="#portfolio" className="text-dark hover:text-white transition-colors block">
+                    PORTFOLIO
+                  </Link>
+                </li>
+              </ul>
 
-            <div className="md:hidden flex justify-end mb-4">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-black hover:text-white transition-colors"
-              >
-                {isMenuOpen ? (
+              <div className="animate-spin md:order-last">
+                <button className="bg-[#A36A53] hover:bg-[#8b5744] text-white rounded-full p-3 transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                )}
-              </button>
+                </button>
+              </div>
+
+              <div className="md:hidden">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="text-black hover:text-white transition-colors"
+                >
+                  {isMenuOpen ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  )}
+                </button>
+              </div>
             </div>
-            <ul className={`flex flex-col md:flex-row md:items-center md:space-y-0 md:space-x-8 text-sm md:text-base
-              transition-all duration-300 ease-in-out
-              ${isMenuOpen ? 'block fixed left-0 right-0 top-[4.5rem] bg-[#c0aa7b] p-6 space-y-6 border-t border-[#a57b63]' : 'hidden md:flex'}`}>
-              <li className="text-center md:text-left">
-                <Link href="#hello" className="text-dark hover:text-white transition-colors block">
-                  HELLO
-                </Link>
-              </li>
-              <li className="text-center md:text-left">
-                <Link href="#about" className="text-dark hover:text-white transition-colors block">
-                  ABOUT ME
-                </Link>
-              </li>
-              <li className="text-center md:text-left">
-                <Link href="#skills" className="text-dark hover:text-white transition-colors block">
-                  SKILLS
-                </Link>
-              </li>
-              <li className="text-center md:text-left">
-                <Link href="#portfolio" className="text-dark hover:text-white transition-colors block">
-                  PORTFOLIO
-                </Link>
-              </li>
-              
-            </ul>
           </nav>
         </header>
 
