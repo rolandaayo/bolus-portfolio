@@ -30,7 +30,7 @@ const projects = [
   },
   {
     name: "Ivy Rhode",
-    image: "/images/project-3.avif?height=400&width=600",
+    image: "/images/project-1.avif?height=400&width=600",
     imageAlt: "Ivy Rhode jewelry",
     title: "Digital Footprint",
     items: [
@@ -54,7 +54,7 @@ const projects = [
   },
   {
     name: "Project Five",
-    image: "/images/project-3.avif?height=400&width=600",
+    image: "/images/project-2.avif?height=400&width=600",
     imageAlt: "Project Five showcase",
     title: "Digital Marketing",
     items: [
@@ -83,30 +83,31 @@ export default function Body() {
     <div>
       <div className="w-full max-w-4xl mx-auto h-1 bg-[#c0aa7b] mb-12"></div>
 
-      <div className="min-h-screen bg-[#A36A53] p-4 md:p-8 flex items-center justify-center">
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-20">
+      <div className="min-h-screen bg-gradient-to-br from-[#A36A53]  p-4 md:p-8 flex items-center justify-center">
+        <div className="max-w-7xl w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-8 lg:px-20">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white">
-              <div className="relative h-80 w-full">
+            <div key={index} className="bg-white rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 hover:shadow-3xl">
+              <div className="relative h-64 sm:h-72 w-full">
                 <Image
                   src={project.image}
-                  alt={project.imageAlt} 
+                  alt={project.imageAlt} 
                   fill
-                  className="object-cover"
+                  className="object-cover hover:opacity-90 transition-opacity duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
               <div className="relative">
-                <div className="bg-slate-700 text-white text-center py-3 px-4 w-32 mx-auto -mt-5 relative z-10">
-                  <h3 className="text-lg font-medium">{project.name}</h3>
+                <div className="bg-gradient-to-r from-slate-800 to-slate-700 text-white text-center py-3 sm:py-4 px-4 sm:px-5 w-32 sm:w-36 mx-auto -mt-6 relative z-10 rounded-full shadow-lg">
+                  <h3 className="text-base sm:text-lg font-semibold">{project.name}</h3>
                 </div>
               </div>
-              <div className="p-6 text-black pt-8">
-                <h2 className="text-2xl font-bold text-center mb-6">{project.title}</h2>
-                <ul className="space-y-4">
+              <div className="p-6 sm:p-8 text-black pt-8 sm:pt-10">
+                <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-slate-800">{project.title}</h2>
+                <ul className="space-y-4 sm:space-y-5">
                   {project.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start">
-                      <Check className="h-5 w-5 text-black mt-0.5 mr-2 flex-shrink-0" />
-                      <span>{item}</span>
+                    <li key={itemIndex} className="flex items-start group">
+                      <Check className="h-5 sm:h-6 w-5 sm:w-6 text-[#A36A53] mt-0.5 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
+                      <span className="text-sm sm:text-base text-slate-700 group-hover:text-slate-900 transition-colors duration-200">{item}</span>
                     </li>
                   ))}
                 </ul>

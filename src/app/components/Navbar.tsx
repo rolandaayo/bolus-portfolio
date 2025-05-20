@@ -23,6 +23,7 @@ const inter = Inter({
 interface Props {}
 
 const App: React.FC<Props> = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isMobile, setIsMobile] = useState<boolean>(false)
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
@@ -92,21 +93,7 @@ const App: React.FC<Props> = () => {
                   PORTFOLIO
                 </Link>
               </li>
-              <li className="text-center md:text-left">
-                <Link href="#brands" className="text-dark hover:text-white transition-colors block">
-                  BRANDS I'VE WORKED ON
-                </Link>
-              </li>
-              <li className="text-center md:text-left">
-                <Link href="#testimonials" className="text-dark hover:text-white transition-colors block">
-                  TESTIMONIALS
-                </Link>
-              </li>
-              <li className="text-center md:text-left">
-                <Link href="#contact" className="text-dark hover:text-white transition-colors block">
-                  CONTACT
-                </Link>
-              </li>
+              
             </ul>
           </nav>
         </header>
@@ -118,7 +105,7 @@ const App: React.FC<Props> = () => {
               <h1 className="text-white text-4xl md:text-7xl lg:text-8xl font-serif text-center mb-4">
                 Hello,
                 <br />
-                I'm Boluwatife.
+                I&apos;m Boluwatife.
               </h1>
 
               <div className="w-full max-w-4xl mx-auto h-1 bg-[#c0aa7b] my-6 md:my-8"></div>
@@ -136,7 +123,7 @@ const App: React.FC<Props> = () => {
 
                 <div className="w-full md:w-3/5 text-white text-center">
                   <h2 className="text-xl md:text-3xl lg:text-4xl font-serif mb-4 md:mb-6">
-                    I'm a content writer &<br />
+                    I&apos;m a content writer &<br />
                     social media consultant based
                     <br />
                     in Lagos, Nigeria.
