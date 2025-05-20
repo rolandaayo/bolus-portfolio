@@ -30,25 +30,25 @@ export default function Hero() {
     ]
 
     return (
-      <div className="py-16">
-        <div className="w-full max-w-4xl mx-auto h-1 bg-[#c0aa7b] mb-12"></div>
+      <div className="py-8 sm:py-16">
+        <div className="w-full max-w-4xl mx-auto h-1 bg-[#c0aa7b] mb-8 sm:mb-12"></div>
 
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">My Skills & Services</h2>
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">My Skills & Services</h2>
           </div>
 
-          <div className='grid gap-12 mx-auto w-[70%]'>
+          <div className='grid gap-8 sm:gap-12 mx-auto w-full sm:w-[90%] lg:w-[70%]'>
             {services.map((service, index) => (
-              <div key={index} className='flex flex-col items-center md:flex-row gap-8 rounded-lg p-8 '>
-                <div className='md:w-1/4'>
-                  <h2 className='text-2xl font-semibold text-white mb-4'>{service.title}</h2>
+              <div key={index} className='flex flex-col items-start md:flex-row gap-4 sm:gap-8 rounded-lg p-4 sm:p-8'>
+                <div className='w-full md:w-1/4'>
+                  <h2 className='text-xl sm:text-2xl font-semibold text-white mb-2 sm:mb-4'>{service.title}</h2>
                 </div>
-                <div className='md:w-3/4'>
-                  <p className='text-white mb-4 text-20px font-light leading-[24px]'>
+                <div className='w-full md:w-3/4'>
+                  <p className='text-white mb-4 text-base sm:text-20px font-light leading-[20px] sm:leading-[24px]'>
                     {service.description}
                   </p>
-                  <p className='text-sm font-medium text-white'>{service.forClient}</p>
+                  <p className='text-xs sm:text-sm font-medium text-white'>{service.forClient}</p>
                 </div>
               </div>
             ))}

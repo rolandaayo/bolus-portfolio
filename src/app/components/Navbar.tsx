@@ -24,11 +24,15 @@ interface Props {}
 
 const App: React.FC<Props> = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false)
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
   // Handle responsive behavior
   useEffect(() => {
     const handleResize = (): void => {
       setIsMobile(window.innerWidth < 768)
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false)
+      }
     }
 
     handleResize()
@@ -45,41 +49,61 @@ const App: React.FC<Props> = () => {
       </Head>
 
       <div className={`min-h-screen flex flex-col ${inter.variable} ${serif.variable}`}>
-        <header className="bg-[#c0aa7b] py-8 fixed w-full top-0 z-50">
+
+        <header className="bg-[#c0aa7b] py-4 md:py-8 fixed w-full top-0 z-50">
           <nav className="container mx-auto px-4">
-            <ul className="flex flex-wrap justify-center space-x-4 md:space-x-8 text-sm md:text-base">
-              <li>
-                <Link href="#hello" className="text-dark hover:text-white transition-colors">
+
+            <div className="md:hidden flex justify-end mb-4">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-black hover:text-white transition-colors"
+              >
+                {isMenuOpen ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
+              </button>
+            </div>
+            <ul className={`flex flex-col md:flex-row md:items-center md:space-y-0 md:space-x-8 text-sm md:text-base
+              transition-all duration-300 ease-in-out
+              ${isMenuOpen ? 'block fixed left-0 right-0 top-[4.5rem] bg-[#c0aa7b] p-6 space-y-6 border-t border-[#a57b63]' : 'hidden md:flex'}`}>
+              <li className="text-center md:text-left">
+                <Link href="#hello" className="text-dark hover:text-white transition-colors block">
                   HELLO
                 </Link>
               </li>
-              <li>
-                <Link href="#about" className="text-dark hover:text-white transition-colors">
+              <li className="text-center md:text-left">
+                <Link href="#about" className="text-dark hover:text-white transition-colors block">
                   ABOUT ME
                 </Link>
               </li>
-              <li>
-                <Link href="#skills" className="text-dark hover:text-white transition-colors">
+              <li className="text-center md:text-left">
+                <Link href="#skills" className="text-dark hover:text-white transition-colors block">
                   SKILLS
                 </Link>
               </li>
-              <li>
-                <Link href="#portfolio" className="text-dark hover:text-white transition-colors">
+              <li className="text-center md:text-left">
+                <Link href="#portfolio" className="text-dark hover:text-white transition-colors block">
                   PORTFOLIO
                 </Link>
               </li>
-              <li>
-                <Link href="#brands" className="text-dark hover:text-white transition-colors">
-                  BRANDS I&apos;VE WORKED ON
+              <li className="text-center md:text-left">
+                <Link href="#brands" className="text-dark hover:text-white transition-colors block">
+                  BRANDS I'VE WORKED ON
                 </Link>
               </li>
-              <li>
-                <Link href="#testimonials" className="text-dark hover:text-white transition-colors">
+              <li className="text-center md:text-left">
+                <Link href="#testimonials" className="text-dark hover:text-white transition-colors block">
                   TESTIMONIALS
                 </Link>
               </li>
-              <li>
-                <Link href="#contact" className="text-dark hover:text-white transition-colors">
+              <li className="text-center md:text-left">
+                <Link href="#contact" className="text-dark hover:text-white transition-colors block">
                   CONTACT
                 </Link>
               </li>
@@ -87,40 +111,38 @@ const App: React.FC<Props> = () => {
           </nav>
         </header>
 
-        <main className="flex-grow">
-          <section id="hello" className="bg-[#A36A53] py-16 md:py-24">
+        <main className="flex-grow mt-20 md:mt-24">
+          <section id="hello" className="bg-[#A36A53] py-12 md:py-24">
             <div className="container mx-auto px-4">
-              <h1 className="text-white text-5xl md:text-7xl lg:text-8xl font-serif text-center mb-4">
+
+              <h1 className="text-white text-4xl md:text-7xl lg:text-8xl font-serif text-center mb-4">
                 Hello,
                 <br />
-                I&apos;m Boluwatife.
+                I'm Boluwatife.
               </h1>
-              <div className="w-full max-w-4xl mx-auto h-1 bg-[#c0aa7b] my-8"></div>
 
-              <div
-                className={`flex ${
-                  isMobile ? "flex-col" : "flex-row"
-                } items-center justify-center gap-8 max-w-5xl mx-auto mt-8`}
-              >
-                <div className={`w-full ${isMobile ? "" : "md:w-2/5"}`}>
+              <div className="w-full max-w-4xl mx-auto h-1 bg-[#c0aa7b] my-6 md:my-8"></div>
+
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 max-w-5xl mx-auto mt-6 md:mt-8">
+                <div className="w-full md:w-2/5">
                   <Image
                     src="/images/bolu.jpg"
                     alt="Sarah's profile"
                     width={500}
                     height={600}
-                    className="rounded-sm"
+                    className="rounded-sm w-full"
                   />
                 </div>
 
-                <div className={`w-full ${isMobile ? "" : "md:w-3/5"} text-white text-center`}>
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif mb-6">
-                    I&apos;m a content writer &<br />
+                <div className="w-full md:w-3/5 text-white text-center">
+                  <h2 className="text-xl md:text-3xl lg:text-4xl font-serif mb-4 md:mb-6">
+                    I'm a content writer &<br />
                     social media consultant based
                     <br />
                     in Lagos, Nigeria.
                   </h2>
 
-                  <p className="text-lg">
+                  <p className="text-base md:text-lg px-4 md:px-0">
                     For the last decade I have produced strategic digital content for businesses and brands who want to
                     cultivate communities online. I began my career in journalism and have since expanded my expertise
                     to include social media strategy, content creation, and brand development.

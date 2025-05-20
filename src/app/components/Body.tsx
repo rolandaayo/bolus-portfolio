@@ -83,14 +83,14 @@ export default function Body() {
     <div>
       <div className="w-full max-w-4xl mx-auto h-1 bg-[#c0aa7b] mb-12"></div>
 
-      <div className="min-h-screen bg-amber-800/20 p-4 md:p-8 flex items-center justify-center">
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-0">
+      <div className="min-h-screen bg-[#A36A53] p-4 md:p-8 flex items-center justify-center">
+        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-20">
           {projects.map((project, index) => (
             <div key={index} className="bg-white">
               <div className="relative h-80 w-full">
                 <Image
                   src={project.image}
-                  alt={project.imageAlt}
+                  alt={project.imageAlt} 
                   fill
                   className="object-cover"
                 />
