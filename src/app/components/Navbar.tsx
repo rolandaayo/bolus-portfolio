@@ -119,7 +119,7 @@ const App: React.FC<Props> = () => {
                 <div className="w-full md:w-2/5">
                   <Image
                     src="/images/bolu.jpg"
-                    alt="Sarah's profile"
+                    alt="Bolu's Image"
                     width={500}
                     height={600}
                     className="rounded-sm w-full"
