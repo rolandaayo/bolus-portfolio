@@ -7,6 +7,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import Head from "next/head"
 
+
 // Font setup
 const serif = DM_Serif_Display({
   weight: "400",
@@ -110,6 +111,7 @@ const App: React.FC<Props> = () => {
               <h1 className="text-white text-4xl md:text-7xl lg:text-8xl font-serif text-center mb-4">
                 Hello,
                 <br />
+
                 I&apos;m Boluwatife.
               </h1>
 
@@ -118,7 +120,7 @@ const App: React.FC<Props> = () => {
               <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 max-w-5xl mx-auto mt-6 md:mt-8">
                 <div className="w-full md:w-2/5">
                   <Image
-                    src="/images/bolu.jpg"
+                    src="/images/bolu.png"
                     alt="Bolu's Image"
                     width={500}
                     height={600}
@@ -128,6 +130,7 @@ const App: React.FC<Props> = () => {
 
                 <div className="w-full md:w-3/5 text-white text-center">
                   <h2 className="text-xl md:text-3xl lg:text-4xl font-serif mb-4 md:mb-6">
+
                     I&apos;m a content writer &<br />
                     social media consultant based
                     <br />
